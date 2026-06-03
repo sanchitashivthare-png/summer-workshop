@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SUMMER WORKSHOP - Compare Artificial Intelligence</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#050816;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:100%;
+      height:100%;
+      background:
+      radial-gradient(circle at top left,#00f0ff20,transparent 30%),
+      radial-gradient(circle at bottom right,#8a2be220,transparent 30%);
+      z-index:-1;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.1);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:28px;
+      font-family:'Orbitron',sans-serif;
+      color:#00f0ff;
+      font-weight:800;
+    }
+
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#00f0ff;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:50px;
+    }
+
+    .hero-content h1{
+      font-size:4rem;
+      font-family:'Orbitron',sans-serif;
+      background:linear-gradient(to right,#00f0ff,#8a2be2);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero-content p{
+      max-width:800px;
+      margin:20px auto;
+      font-size:1.2rem;
+      color:#c8c8c8;
+    }
+
+    .btn{
+      background:linear-gradient(90deg,#00f0ff,#8a2be2);
+      border:none;
+      color:white;
+      padding:15px 35px;
+      border-radius:30px;
+      cursor:pointer;
+      font-size:1rem;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-4px);
+      box-shadow:0 0 20px #00f0ff;
+    }
+
+    section{
+      padding:90px 8%;
+    }
+
+    .title{
+      text-align:center;
+      font-size:2.7rem;
+      margin-bottom:50px;
+      color:#00f0ff;
+      font-family:'Orbitron';
+    }
+
+    .card-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:20px;
+      padding:25px;
+      transition:0.4s;
+      backdrop-filter:blur(10px);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#00f0ff;
+      box-shadow:0 0 30px rgba(0,240,255,0.2);
+    }
+
+    .card h3{
+      color:#00f0ff;
+      margin-bottom:15px;
+      font-size:1.6rem;
+    }
+
+    .pros{
+      color:#62ff62;
+      margin-top:10px;
+    }
+
+    .cons{
+      color:#ff6a6a;
+      margin-top:10px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      overflow:hidden;
+      border-radius:15px;
+    }
+
+    table th,table td{
+      padding:18px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    table th{
+      background:#00f0ff20;
+      color:#00f0ff;
+    }
+
+    table tr{
+      background:rgba(255,255,255,0.04);
+    }
+
+    .output-box{
+      background:#10182b;
+      padding:20px;
+      border-radius:15px;
+      margin-bottom:20px;
+      border-left:5px solid #00f0ff;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      border-top:1px solid rgba(255,255,255,0.1);
+      color:#aaa;
+    }
+
+    @media(max-width:768px){
+      .hero-content h1{
+        font-size:2.7rem;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">SUMMER WORKSHOP 2026</div>
+    <ul>
+      <li><a href="#ais">AI Models</a></li>
+      <li><a href="#outputs">Outputs</a></li>
+      <li><a href="#best">Best AI</a></li>
+      <li><a href="">Outputs</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>ARCH AI LAB</h1>
+      <p>
+       IMAGINE.VISUALIZE.COMMUNICATE.ELEVATE      </p>
+      <button class="btn" onclick="document.getElementById('ais').scrollIntoView()">
+        Explore AI
+      </button>
+    </div>
+  </section>
+
+  <section id="ais">
+    <h2 class="title">AI TOOLS</h2>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <h3>ChatGPT</h3>
+        <p>Excellent for coding, reasoning, explanations and productivity.</p>
+
+        <div class="pros">
+          <strong>Pros:</strong>
+          <ul>
+            <li>Strong coding ability</li>
+            <li>Detailed explanations</li>
+            <li>Fast responses</li>
+          </ul>
+        </div>
+
+        <div class="cons">
+          <strong>Cons:</strong>
+          <ul>
+            <li>Can hallucinate</li>
+            <li>Some features paid</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>NotebookLM</h3>
+        <p>Great for long-form writing and deep reasoning.</p>
+
+        <div class="pros">
+          <strong>Pros:</strong>
+          <ul>
+            <li>Source based answers</li>
+            <li>Excellent for srudying and reasearch</li>
+            <li>Audio overview</li>
+            <li>Multiple source types</li>
+          </ul>
+        </div>
+
+        <div class="cons">
+          <strong>Cons:</strong>
+          <ul>
+            <li>Limited knowledge</li>
+            <li>Weak for numerical analysis</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Gemini</h3>
+        <p>Google AI with multimodal abilities.</p>
+
+        <div class="pros">
+          <strong>Pros:</strong>
+          <ul>
+            <li>Google integration</li>
+            <li>Large context support</li>
+            <li>Multimodal</li>
+          </ul>
+        </div>
+
+        <div class="cons">
+          <strong>Cons:</strong>
+          <ul>
+            <li>Sometimes inconsistent</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Leonardo.ai</h3>
+        <p>AI image generation platform.</p>
+
+        <div class="pros">
+          <strong>Pros:</strong>
+          <ul>
+            <li>High quality image</li>
+            <li>Free tier available</li>
+          </ul>
+        </div>
+
+        <div class="cons">
+          <strong>Cons:</strong>
+          <ul>
+            <li>Limited token</li>
+            <li>Not accurate </li>
+          </ul>
+        </div>
+      </div>
+<div class="card">
+        <h3>Lovable.AI</h3>
+        <p>Excellent for coding, reasoning, explanations and productivity.</p>
+
+        <div class="pros">
+          <strong>Pros:</strong>
+          <ul>
+            <li>Build app without coding</li>
+            <li>Good ui design</li>
+       
+          </ul>
+        </div>
+
+        <div class="cons">
+          <strong>Cons:</strong>
+          <ul>
+            <li>Limited customization</li>
+            <li>Some features paid</li>
+          </ul>
+        </div>
+      </div>
+
+<div class="card">
+        <h3>Canva AI</h3>
+        <p>Excellent for coding, reasoning, explanations and productivity.</p>
+
+        <div class="pros">
+          <strong>Pros:</strong>
+          <ul>
+            <li>Beginner friendly</li>
+            <li>Background removal ai</li>
+<li>Team collaboration</li>
+       
+          </ul>
+        </div>
+
+        <div class="cons">
+          <strong>Cons:</strong>
+          <ul>
+            <li>Limited control</li>
+            <li>Premium feature</li>
+          </ul>
+        </div>
+      </div>
+<div class="card">
+        <h3>Mixboard AI</h3>
+        <p>Excellent for coding, reasoning, explanations and productivity.</p>
+
+        <div class="pros">
+          <strong>Pros:</strong>
+          <ul>
+            <li>Visual brainstorming</li>
+            <li>Ai generated moodboard</li>
+       
+          </ul>
+        </div>
+
+        <div class="cons">
+          <strong>Cons:</strong>
+          <ul>
+            <li>Still Experimental</li>
+            <li>Less polished</li>
+          </ul>
+        </div>
+      </div>
+<div class="card">
+        <h3>Adobe firefly</h3>
+        <p>AI platform for generating and editing images,graphics,videos and design content.</p>
+
+        <div class="pros">
+          <strong>Pros:</strong>
+          <ul>
+            <li>Excellent image editing</li>
+            <li>Beginner friendly</li>
+       
+          </ul>
+        </div>
+
+        <div class="cons">
+          <strong>Cons:</strong>
+          <ul>
+            <li>Limited credits</li>
+            <li>Less control</li>
+          </ul>
+        </div>
+      </div>
+<div class="card">
+        <h3>Whisperflow</h3>
+        <p>Ai powered text to speech tool.</p>
+
+        <div class="pros">
+          <strong>Pros:</strong>
+          <ul>
+            <li>Extremely fast writing</li>
+            <li>Works almost anywhere</li>
+<li> Learns your vocabulary</li>
+<li>Supports many languages</li>
+
+       
+          </ul>
+        </div>
+
+        <div class="cons">
+          <strong>Cons:</strong>
+          <ul>
+            <li>Privacy concerns</li>
+            <li>Some features paid</li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </section id="outputs">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WORKSHOP OUTOUTS</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align:center;
+            padding:40px;
+        }
+
+        img{
+            width:400px;
+            max-width:90%;
+            border-radius:10px;
+        }
+
+        a{
+            display:inline-block;
+            margin-top:20px;
+            text-decoration:none;
+            background:#007BFF;
+            color:white;
+            padding:10px 20px;
+            border-radius:8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>WORKSHOP OUTPUTS</h1>
+
+    <!-- Add your image here -->
+   
+
+    <br>
+
+    <a href="output 1.0.html">View Outputs</a>
+
+</body>
+
+ <!-- Comparative Study Section -->
+    <section id="comparison" class="bg-slate-900/50 py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">Feature Comparison Matrix</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-slate-700">
+                            <th class="p-4 font-semibold">Capability</th>
+                            <th class="p-4 font-semibold text-sky-400">ChatGPT</th>
+                            <th class="p-4 font-semibold text-orange-400">Notebook LM</th>
+                            <th class="p-4 font-semibold text-blue-400">Gemini</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-300">
+                        <tr class="border-b border-slate-800">
+                            <td class="p-4">Coding & Logic</td>
+                            <td class="p-4">Advanced</td>
+                            <td class="p-4 font-bold text-white">Elite (Winner)</td>
+                            <td class="p-4">Strong</td>
+                        </tr>
+                        <tr class="border-b border-slate-800">
+                            <td class="p-4">Creative Writing</td>
+                            <td class="p-4">Strong</td>
+                            <td class="p-4 font-bold text-white">Most Human-like</td>
+                            <td class="p-4">Varies</td>
+                        </tr>
+                        <tr class="border-b border-slate-800">
+                            <td class="p-4">Web Search</td>
+                            <td class="p-4 font-bold text-white">Bing Integration</td>
+                            <td class="p-4">No Native Search</td>
+                            <td class="p-4 font-bold text-white">Google Search</td>
+                        </tr>
+                        <tr class="border-b border-slate-800">
+                            <td class="p-4">Context Window</td>
+                            <td class="p-4">128k</td>
+                            <td class="p-4">200k</td>
+                            <td class="p-4 font-bold text-white">Up to 2M (Winner)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+  <section id="best">
+    <h2 class="title">Best AI by Category</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Best for Coding</h3>
+        <p>🏆 ChatGPT</p>
+      </div>
+
+      <div class="card">
+        <h3>Best for Research</h3>
+        <p>🏆 Perplexity</p>
+      </div>
+
+      <div class="card">
+        <h3>Best for Writing</h3>
+        <p>🏆 Claude</p>
+      </div>
+
+      <div class="card">
+        <h3>Best for Google Ecosystem</h3>
+        <p>🏆 Gemini</p>
+      </div>
+    </div>
+  </section>
+
+  <section >
+    <h2 class="title">AI Outputs Comparison</h2>
+
+    <div class="output-box">
+      <h3>Prompt: "Write Python code for Fibonacci"</h3>
+      <p><strong>ChatGPT:</strong> Clean optimized code with explanation.</p>
+      <p><strong>Claude:</strong> More descriptive explanation.</p>
+      <p><strong>Gemini:</strong> Balanced explanation and code.</p>
+      <p><strong>Perplexity:</strong> Code + external references.</p>
+    </div>
+
+    <div class="output-box">
+      <h3>Prompt: "Explain Cybersecurity"</h3>
+      <p><strong>ChatGPT:</strong> Beginner to advanced explanation.</p>
+      <p><strong>Claude:</strong> Detailed conceptual breakdown.</p>
+      <p><strong>Gemini:</strong> Short and structured response.</p>
+      <p><strong>Perplexity:</strong> Research-backed answer.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 AI Arena | Future of Artificial Intelligence
+  </footer>
+
+</body>
+</html>
